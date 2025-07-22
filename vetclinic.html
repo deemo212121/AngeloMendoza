@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>H&H Vet Clinic - Pet Reservation System</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#FF6B35",
+              secondary: "#FFF5F2",
+            },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      :where([class^="ri-"])::before {
+      content: "\f3c2";
+      }
+    </style>
+  </head>
+  <body class="bg-white">
+    <header class="bg-white border-b border-gray-100 sticky top-0 z-50">
+      <div class="w-full px-6 py-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-3">
+            <div
+              class="w-12 h-12 bg-primary rounded-full flex items-center justify-center"
+            >
+              <i class="ri-heart-pulse-line text-white text-xl"></i>
+            </div>
+            <div>
+              <h1 class="text-2xl font-['Pacifico'] text-primary">
+                H&H Vet Clinic
+              </h1>
+              <p class="text-sm text-gray-600">
+                Caring for Your Furry Family Members
+              </p>
+            </div>
+          </div>
+          <div class="flex items-center space-x-6">
+            <div class="flex items-center space-x-2 text-primary">
+              <i class="ri-phone-line"></i>
+              <span class="font-medium">(555) 123-4567</span>
+            </div>
+            <div class="flex items-center space-x-2 text-gray-600">
+              <i class="ri-time-line"></i>
+              <span>Mon-Sat 8AM-6PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="w-full">
+      <div class="bg-gradient-to-br from-secondary to-white py-16 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">
+            Book Your Pet's Appointment
+          </h2>
+          <p class="text-xl text-gray-600 mb-8">
+            Professional veterinary care with compassion and expertise
+          </p>
+          <div
+            class="bg-primary/10 rounded-xl p-2 inline-flex items-center space-x-2"
+          >
+            <div
+              class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium"
+            >
+              Step 1
+            </div>
+            <div class="text-gray-500 px-4 py-2 text-sm">Step 2</div>
+            <div class="text-gray-500 px-4 py-2 text-sm">Step 3</div>
+            <div class="text-gray-500 px-4 py-2 text-sm">Step 4</div>
+          </div>
+        </div>
+      </div>
+      <section class="py-12 px-6">
+        <div class="max-w-6xl mx-auto">
+          <h3 class="text-2xl font-bold text-gray-900 mb-8 text-center">
+            Select Your Pet Type
+          </h3>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+            <div
+              class="pet-type-card bg-white border-2 border-gray-200 rounded-xl p-6 text-center cursor-pointer hover:border-primary hover:shadow-lg transition-all"
+            >
+              <div
+                class="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center"
+              >
+                <i class="ri-heart-3-line text-2xl text-gray-600"></i>
+              </div>
+              <h4 class="font-semibold text-gray-900 mb-2">Dogs</h4>
+              <p class="text-sm text-gray-600">All breeds welcome</p>
+            </div>
+            <div
+              class="pet-type-card bg-white border-2 border-gray-200 rounded-xl p-6 text-center cursor-pointer hover:border-primary hover:shadow-lg transition-all"
+            >
+              <div
+                class="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center"
+              >
+                <i class="ri-heart-2-line text-2xl text-gray-600"></i>
+              </div>
+              <h4 class="font-semibold text-gray-900 mb-2">Cats</h4>
+              <p class="text-sm text-gray-600">Feline care specialists</p>
+            </div>
+            <div
+              class="pet-type-card bg-white border-2 border-gray-200 rounded-xl p-6 text-center cursor-pointer hover:border-primary hover:shadow-lg transition-all"
+            >
+              <div
+                class="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center"
+              >
+                <i class="ri-flight-takeoff-line text-2xl text-gray-600"></i>
+              </div>
+              <h4 class="font-semibold text-gray-900 mb-2">Birds</h4>
+              <p class="text-sm text-gray-600">Avian medicine</p>
+            </div>
+            <div
+              class="pet-type-card bg-white border-2 border-gray-200 rounded-xl p-6 text-center cursor-pointer hover:border-primary hover:shadow-lg transition-all"
+            >
+              <div
+                class="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center"
+              >
+                <i class="ri-heart-line text-2xl text-gray-600"></i>
+              </div>
+              <h4 class="font-semibold text-gray-900 mb-2">Small Animals</h4>
+              <p class="text-sm text-gray-600">Rabbits, hamsters & more</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-12 px-6 bg-secondary/30">
+        <div class="max-w-6xl mx-auto">
+          <h3 class="text-2xl font-bold text-gray-900 mb-8 text-center">
+            Choose Your Service
+          </h3>
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"
+          >
+            <div
+              class="service-card bg-white rounded-xl p-6 border-2 border-gray-200 cursor-pointer hover:border-primary hover:shadow-lg transition-all"
+            >
+              <div
+                class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4"
+              >
+                <i class="ri-stethoscope-line text-primary text-xl"></i>
+              </div>
+              <h4 class="font-semibold text-gray-900 mb-2">Regular Check-up</h4>
+              <p class="text-sm text-gray-600 mb-3">
+                Comprehensive health examination
+              </p>
+              <div
+                class="bg-primary text-white px-3 py-1 rounded-full text-sm font-medium inline-block"
+              >
+                Desired price $
+              </div>
+            </div>
+            <div
+              class="service-card bg-white rounded-xl p-6 border-2 border-gray-200 cursor-pointer hover:border-primary hover:shadow-lg transition-all"
+            >
+              <div
+                class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4"
+              >
+                <i class="ri-syringe-line text-primary text-xl"></i>
+              </div>
+              <h4 class="font-semibold text-gray-900 mb-2">Vaccination</h4>
+              <p class="text-sm text-gray-600 mb-3">Essential immunizations</p>
+              <div
+                class="bg-primary text-white px-3 py-1 rounded-full text-sm font-medium inline-block"
+              >
+                Desired price $
+              </div>
+            </div>
+            <div
+              class="service-card bg-white rounded-xl p-6 border-2 border-gray-200 cursor-pointer hover:border-primary hover:shadow-lg transition-all"
+            >
+              <div
+                class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4"
+              >
+                <i class="ri-tooth-line text-primary text-xl"></i>
+              </div>
+              <h4 class="font-semibold text-gray-900 mb-2">Dental Care</h4>
+              <p class="text-sm text-gray-600 mb-3">Oral health maintenance</p>
+              <div
+                class="bg-primary text-white px-3 py-1 rounded-full text-sm font-medium inline-block"
+              >
+                Desired price $
+              </div>
+            </div>
+            <div
+              class="service-card bg-white rounded-xl p-6 border-2 border-gray-200 cursor-pointer hover:border-primary hover:shadow-lg transition-all"
+            >
+              <div
+                class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4"
+              >
+                <i class="ri-alarm-warning-line text-primary text-xl"></i>
+              </div>
+              <h4 class="font-semibold text-gray-900 mb-2">Emergency</h4>
+              <p class="text-sm text-gray-600 mb-3">Urgent medical attention</p>
+              <div
+                class="bg-primary text-white px-3 py-1 rounded-full text-sm font-medium inline-block"
+              >
+                Desired price $
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-12 px-6">
+        <div class="max-w-6xl mx-auto">
+          <h3 class="text-2xl font-bold text-gray-900 mb-8 text-center">
+            Select Your Veterinarian
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div
+              class="vet-card bg-white rounded-xl p-6 border-2 border-gray-200 cursor-pointer hover:border-primary hover:shadow-lg transition-all"
+            >
+              <div
+                class="w-20 h-20 bg-gradient-to-br from-primary/20 to-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center"
+              >
+                <i class="ri-user-heart-line text-primary text-2xl"></i>
+              </div>
+              <h4 class="font-semibold text-gray-900 text-center mb-2">
+                Dr. Angelo Mendoza
+              </h4>
+              <p class="text-sm text-gray-600 text-center mb-3">
+                Small Animal Specialist
+              </p>
+              <p class="text-xs text-gray-500 text-center mb-4">
+                15 years experience
+              </p>
+              <div class="flex justify-center space-x-1">
+                <div class="w-2 h-2 bg-primary rounded-full"></div>
+                <div class="w-2 h-2 bg-primary rounded-full"></div>
+                <div class="w-2 h-2 bg-gray-300 rounded-full"></div>
+              </div>
+              <p class="text-xs text-center text-gray-500 mt-2">
+                Available slots today
+              </p>
+            </div>
+            <div
+              class="vet-card bg-white rounded-xl p-6 border-2 border-gray-200 cursor-pointer hover:border-primary hover:shadow-lg transition-all"
+            >
+              <div
+                class="w-20 h-20 bg-gradient-to-br from-primary/20 to-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center"
+              >
+                <i class="ri-user-heart-line text-primary text-2xl"></i>
+              </div>
+              <h4 class="font-semibold text-gray-900 text-center mb-2">
+                Dr. Angelo Mendoza
+              </h4>
+              <p class="text-sm text-gray-600 text-center mb-3">
+                Emergency Medicine
+              </p>
+              <p class="text-xs text-gray-500 text-center mb-4">
+                12 years experience
+              </p>
+              <div class="flex justify-center space-x-1">
+                <div class="w-2 h-2 bg-primary rounded-full"></div>
+                <div class="w-2 h-2 bg-primary rounded-full"></div>
+                <div class="w-2 h-2 bg-primary rounded-full"></div>
+              </div>
+              <p class="text-xs text-center text-gray-500 mt-2">
+                Available slots today
+              </p>
+            </div>
+            <div
+              class="vet-card bg-white rounded-xl p-6 border-2 border-gray-200 cursor-pointer hover:border-primary hover:shadow-lg transition-all"
+            >
+              <div
+                class="w-20 h-20 bg-gradient-to-br from-primary/20 to-primary/10 rounded-full mx-auto mb-4 flex items-center justify-center"
+              >
+                <i class="ri-user-heart-line text-primary text-2xl"></i>
+              </div>
+              <h4 class="font-semibold text-gray-900 text-center mb-2">
+                Dr. Angelo Mendoza
+              </h4>
+              <p class="text-sm text-gray-600 text-center mb-3">
+                Exotic Animal Care
+              </p>
+              <p class="text-xs text-gray-500 text-center mb-4">
+                8 years experience
+              </p>
+              <div class="flex justify-center space-x-1">
+                <div class="w-2 h-2 bg-primary rounded-full"></div>
+                <div class="w-2 h-2 bg-gray-300 rounded-full"></div>
+                <div class="w-2 h-2 bg-gray-300 rounded-full"></div>
+              </div>
+              <p class="text-xs text-center text-gray-500 mt-2">
+                Available slots today
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-12 px-6 bg-secondary/30">
+        <div class="max-w-4xl mx-auto">
+          <h3 class="text-2xl font-bold text-gray-900 mb-8 text-center">
+            Select Date & Time
+          </h3>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <div class="bg-white rounded-xl p-6 border border-gray-200">
+              <h4 class="font-semibold text-gray-900 mb-4">Choose Date</h4>
+              <div class="grid grid-cols-7 gap-2 mb-4">
+                <div class="text-center text-xs font-medium text-gray-500 py-2">
+                  Sun
+                </div>
+                <div class="text-center text-xs font-medium text-gray-500 py-2">
+                  Mon
+                </div>
+                <div class="text-center text-xs font-medium text-gray-500 py-2">
+                  Tue
+                </div>
+                <div class="text-center text-xs font-medium text-gray-500 py-2">
+                  Wed
+                </div>
+                <div class="text-center text-xs font-medium text-gray-500 py-2">
+                  Thu
+                </div>
+                <div class="text-center text-xs font-medium text-gray-500 py-2">
+                  Fri
+                </div>
+                <div class="text-center text-xs font-medium text-gray-500 py-2">
+                  Sat
+                </div>
+              </div>
+              <div class="grid grid-cols-7 gap-2">
+                <div
+                  class="date-cell text-center py-2 text-sm text-gray-400 cursor-not-allowed"
+                >
+                  28
+                </div>
+                <div
+                  class="date-cell text-center py-2 text-sm text-gray-400 cursor-not-allowed"
+                >
+                  29
+                </div>
+                <div
+                  class="date-cell text-center py-2 text-sm text-gray-400 cursor-not-allowed"
+                >
+                  30
+                </div>
+                <div
+                  class="date-cell text-center py-2 text-sm text-gray-900 cursor-pointer hover:bg-primary hover:text-white rounded"
+                >
+                  1
+                </div>
+                <div
+                  class="date-cell text-center py-2 text-sm text-gray-900 cursor-pointer hover:bg-primary hover:text-white rounded"
+                >
+                  2
+                </div>
+                <div
+                  class="date-cell text-center py-2 text-sm text-gray-900 cursor-pointer hover:bg-primary hover:text-white rounded"
+                >
+                  3
+                </div>
+                <div
+                  class="date-cell text-center py-2 text-sm text-gray-900 cursor-pointer hover:bg-primary hover:text-white rounded"
+                >
+                  4
+                </div>
+                <div
+                  class="date-cell text-center py-2 text-sm text-gray-900 cursor-pointer hover:bg-primary hover:text-white rounded"
+                >
+                  5
+                </div>
+                <div
+                  class="date-cell text-center py-2 text-sm text-gray-900 cursor-pointer hover:bg-primary hover:text-white rounded"
+                >
+                  6
+                </div>
+                <div
+                  class="date-cell text-center py-2 text-sm text-gray-900 cursor-pointer hover:bg-primary hover:text-white rounded"
+                >
+                  7
+                </div>
+                <div
+                  class="date-cell text-center py-2 text-sm text-gray-900 cursor-pointer hover:bg-primary hover:text-white rounded"
+                >
+                  8
+                </div>
+                <div
+                  class="date-cell text-center py-2 text-sm text-gray-900 cursor-pointer hover:bg-primary hover:text-white rounded"
+                >
+                  9
+                </div>
+                <div
+                  class="date-cell text-center py-2 text-sm text-gray-900 cursor-pointer hover:bg-primary hover:text-white rounded"
+                >
+                  10
+                </div>
+                <div
+                  class="date-cell text-center py-2 text-sm text-gray-900 cursor-pointer hover:bg-primary hover:text-white rounded"
+                >
+                  11
+                </div>
+                <div
+                  class="date-cell text-center py-2 text-sm bg-primary text-white rounded"
+                >
+                  12
+                </div>
+                <div
+                  class="date-cell text-center py-2 text-sm text-gray-900 cursor-pointer hover:bg-primary hover:text-white rounded"
+                >
+                  13
+                </div>
+                <div
+                  class="date-cell text-center py-2 text-sm text-gray-900 cursor-pointer hover:bg-primary hover:text-white rounded"
+                >
+                  14
+                </div>
+                <div
+                  class="date-cell text-center py-2 text-sm text-gray-900 cursor-pointer hover:bg-primary hover:text-white rounded"
+                >
+                  15
+                </div>
+                <div
+                  class="date-cell text-center py-2 text-sm text-gray-900 cursor-pointer hover:bg-primary hover:text-white rounded"
+                >
+                  16
+                </div>
+                <div
+                  class="date-cell text-center py-2 text-sm text-gray-900 cursor-pointer hover:bg-primary hover:text-white rounded"
+                >
+                  17
+                </div>
+                <div
+                  class="date-cell text-center py-2 text-sm text-gray-900 cursor-pointer hover:bg-primary hover:text-white rounded"
+                >
+                  18
+                </div>
+              </div>
+            </div>
+            <div class="bg-white rounded-xl p-6 border border-gray-200">
+              <h4 class="font-semibold text-gray-900 mb-4">Available Times</h4>
+              <div class="grid grid-cols-2 gap-3">
+                <div
+                  class="time-slot text-center py-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-primary hover:bg-primary hover:text-white transition-all"
+                >
+                  9:00 AM
+                </div>
+                <div
+                  class="time-slot text-center py-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-primary hover:bg-primary hover:text-white transition-all"
+                >
+                  10:00 AM
+                </div>
+                <div
+                  class="time-slot text-center py-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-primary hover:bg-primary hover:text-white transition-all"
+                >
+                  11:00 AM
+                </div>
+                <div
+                  class="time-slot text-center py-3 border-2 border-primary bg-primary text-white rounded-lg"
+                >
+                  2:00 PM
+                </div>
+                <div
+                  class="time-slot text-center py-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-primary hover:bg-primary hover:text-white transition-all"
+                >
+                  3:00 PM
+                </div>
+                <div
+                  class="time-slot text-center py-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-primary hover:bg-primary hover:text-white transition-all"
+                >
+                  4:00 PM
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-12 px-6">
+        <div class="max-w-2xl mx-auto">
+          <h3 class="text-2xl font-bold text-gray-900 mb-8 text-center">
+            Pet & Owner Information
+          </h3>
+          <div class="bg-white rounded-xl p-8 border border-gray-200">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2"
+                  >Owner Name *</label
+                >
+                <input
+                  type="text"
+                  class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-primary focus:outline-none"
+                  placeholder="Enter your full name"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2"
+                  >Phone Number *</label
+                >
+                <input
+                  type="tel"
+                  class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-primary focus:outline-none"
+                  placeholder="(555) 123-4567"
+                />
+              </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2"
+                  >Pet Name *</label
+                >
+                <input
+                  type="text"
+                  class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-primary focus:outline-none"
+                  placeholder="Enter pet's name"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2"
+                  >Pet Age</label
+                >
+                <input
+                  type="text"
+                  class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-primary focus:outline-none"
+                  placeholder="e.g., 3 years"
+                />
+              </div>
+            </div>
+            <div class="mb-6">
+              <label class="block text-sm font-medium text-gray-700 mb-2"
+                >Email Address</label
+              >
+              <input
+                type="email"
+                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-primary focus:outline-none"
+                placeholder="your.email@example.com"
+              />
+            </div>
+            <div class="mb-6">
+              <label class="block text-sm font-medium text-gray-700 mb-2"
+                >Additional Notes</label
+              >
+              <textarea
+                rows="4"
+                class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-primary focus:outline-none resize-none"
+                placeholder="Any special concerns or information about your pet..."
+              ></textarea>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-12 px-6 bg-secondary/30">
+        <div class="max-w-2xl mx-auto">
+          <h3 class="text-2xl font-bold text-gray-900 mb-8 text-center">
+            Appointment Summary
+          </h3>
+          <div class="bg-white rounded-xl p-8 border border-gray-200 mb-8">
+            <div class="space-y-4 mb-6">
+              <div
+                class="flex justify-between items-center py-3 border-b border-gray-100"
+              >
+                <span class="text-gray-600">Pet Type:</span>
+                <span class="font-medium text-gray-900">Dog</span>
+              </div>
+              <div
+                class="flex justify-between items-center py-3 border-b border-gray-100"
+              >
+                <span class="text-gray-600">Service:</span>
+                <span class="font-medium text-gray-900">Regular Check-up</span>
+              </div>
+              <div
+                class="flex justify-between items-center py-3 border-b border-gray-100"
+              >
+                <span class="text-gray-600">Veterinarian:</span>
+                <span class="font-medium text-gray-900"
+                  >Dr. Angelo Mendoza</span
+                >
+              </div>
+              <div
+                class="flex justify-between items-center py-3 border-b border-gray-100"
+              >
+                <span class="text-gray-600">Date & Time:</span>
+                <span class="font-medium text-gray-900"
+                  >July 12, 2025 at 2:00 PM</span
+                >
+              </div>
+              <div class="flex justify-between items-center py-3">
+                <span class="text-lg font-semibold text-gray-900"
+                  >Total Cost:</span
+                >
+                <span class="text-2xl font-bold text-primary"
+                  >Desired price $</span
+                >
+              </div>
+            </div>
+            <button
+              class="w-full bg-primary text-white py-4 rounded-button font-semibold text-lg hover:bg-primary/90 transition-colors whitespace-nowrap"
+            >
+              Confirm Reservation
+            </button>
+            <p class="text-xs text-gray-500 text-center mt-4">
+              You will receive a confirmation email with appointment details
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="bg-white border-t border-gray-100 py-12 px-6">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          <div>
+            <div class="flex items-center space-x-3 mb-4">
+              <div
+                class="w-10 h-10 bg-primary rounded-full flex items-center justify-center"
+              >
+                <i class="ri-heart-pulse-line text-white"></i>
+              </div>
+              <h4 class="text-xl font-['Pacifico'] text-primary">
+                H&H Vet Clinic
+              </h4>
+            </div>
+            <p class="text-gray-600 text-sm">
+              Providing compassionate veterinary care for your beloved pets
+              since 2010.
+            </p>
+          </div>
+          <div>
+            <h5 class="font-semibold text-gray-900 mb-4">Contact Info</h5>
+            <div class="space-y-2 text-sm text-gray-600">
+              <div class="flex items-center space-x-2">
+                <i class="ri-map-pin-line text-primary"></i>
+                <span>123 Pet Care Lane, Animal City, AC 12345</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <i class="ri-phone-line text-primary"></i>
+                <span>(555) 123-4567</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <i class="ri-mail-line text-primary"></i>
+                <span>angelo.mendozawork23@gmail.com</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h5 class="font-semibold text-gray-900 mb-4">Hours</h5>
+            <div class="space-y-2 text-sm text-gray-600">
+              <div>Monday - Friday: 8:00 AM - 6:00 PM</div>
+              <div>Saturday: 9:00 AM - 4:00 PM</div>
+              <div>Sunday: Closed</div>
+              <div class="text-primary font-medium">Emergency: 24/7</div>
+            </div>
+          </div>
+          <div>
+            <h5 class="font-semibold text-gray-900 mb-4">Emergency</h5>
+            <div class="bg-primary/10 rounded-lg p-4">
+              <div class="flex items-center space-x-2 text-primary mb-2">
+                <i class="ri-alarm-warning-line"></i>
+                <span class="font-semibold">24/7 Emergency Line</span>
+              </div>
+              <div class="text-lg font-bold text-primary">(555) 911-PETS</div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-sm text-gray-600 mb-4 md:mb-0">
+            © 2025 H&H Vet Clinic. All rights reserved.
+          </p>
+          <div class="flex space-x-4">
+            <div
+              class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center cursor-pointer hover:bg-primary hover:text-white transition-colors"
+            >
+              <i class="ri-facebook-line"></i>
+            </div>
+            <div
+              class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center cursor-pointer hover:bg-primary hover:text-white transition-colors"
+            >
+              <i class="ri-instagram-line"></i>
+            </div>
+            <div
+              class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center cursor-pointer hover:bg-primary hover:text-white transition-colors"
+            >
+              <i class="ri-twitter-line"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script id="pet-type-selection">
+      document.addEventListener("DOMContentLoaded", function () {
+        const petTypeCards = document.querySelectorAll(".pet-type-card");
+        petTypeCards.forEach((card) => {
+          card.addEventListener("click", function () {
+            petTypeCards.forEach((c) => {
+              c.classList.remove("border-primary", "bg-primary/5");
+              c.classList.add("border-gray-200");
+            });
+            this.classList.remove("border-gray-200");
+            this.classList.add("border-primary", "bg-primary/5");
+          });
+        });
+      });
+    </script>
+    <script id="service-selection">
+      document.addEventListener("DOMContentLoaded", function () {
+        const serviceCards = document.querySelectorAll(".service-card");
+        serviceCards.forEach((card) => {
+          card.addEventListener("click", function () {
+            serviceCards.forEach((c) => {
+              c.classList.remove("border-primary", "bg-primary/5");
+              c.classList.add("border-gray-200");
+            });
+            this.classList.remove("border-gray-200");
+            this.classList.add("border-primary", "bg-primary/5");
+          });
+        });
+      });
+    </script>
+    <script id="vet-selection">
+      document.addEventListener("DOMContentLoaded", function () {
+        const vetCards = document.querySelectorAll(".vet-card");
+        vetCards.forEach((card) => {
+          card.addEventListener("click", function () {
+            vetCards.forEach((c) => {
+              c.classList.remove("border-primary", "bg-primary/5");
+              c.classList.add("border-gray-200");
+            });
+            this.classList.remove("border-gray-200");
+            this.classList.add("border-primary", "bg-primary/5");
+          });
+        });
+      });
+    </script>
+    <script id="datetime-selection">
+      document.addEventListener("DOMContentLoaded", function () {
+        const dateCells = document.querySelectorAll(".date-cell");
+        const timeSlots = document.querySelectorAll(".time-slot");
+        dateCells.forEach((cell) => {
+          if (cell.classList.contains("cursor-pointer")) {
+            cell.addEventListener("click", function () {
+              dateCells.forEach((c) => {
+                c.classList.remove("bg-primary", "text-white");
+              });
+              this.classList.add("bg-primary", "text-white");
+            });
+          }
+        });
+        timeSlots.forEach((slot) => {
+          if (slot.classList.contains("cursor-pointer")) {
+            slot.addEventListener("click", function () {
+              timeSlots.forEach((s) => {
+                s.classList.remove("border-primary", "bg-primary", "text-white");
+                s.classList.add("border-gray-200");
+              });
+              this.classList.remove("border-gray-200");
+              this.classList.add("border-primary", "bg-primary", "text-white");
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

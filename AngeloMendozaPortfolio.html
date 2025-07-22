@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Angelo Mendoza - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#3b82f6",
+              secondary: "#1e40af",
+            },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :where([class^="ri-"])::before {
+          content: "\f3c2";
+      }
+
+      html {
+          scroll-behavior: smooth;
+      }
+
+      .hero-bg {
+          background-image: url('https://readdy.ai/api/search-image?query=modern%20minimalist%20workspace%20with%20clean%20desk%20setup%2C%20soft%20natural%20lighting%2C%20professional%20atmosphere%2C%20white%20and%20blue%20color%20scheme%2C%20contemporary%20office%20environment%20with%20laptop%20and%20tech%20accessories%2C%20clean%20aesthetic&width=1920&height=1080&seq=hero-bg&orientation=landscape');
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+      }
+
+      .gradient-overlay {
+          background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(59, 130, 246, 0.05) 100%);
+      }
+
+      .skill-card {
+          transition: all 0.3s ease;
+      }
+
+      .skill-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .project-card {
+          transition: all 0.3s ease;
+      }
+
+      .project-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-link {
+          transition: color 0.3s ease;
+      }
+
+      .nav-link:hover {
+          color: #3b82f6;
+      }
+
+      .contact-link {
+          transition: all 0.3s ease;
+      }
+
+      .contact-link:hover {
+          background-color: #f8fafc;
+          transform: translateX(4px);
+      }
+    </style>
+  </head>
+  <body class="font-sans bg-white">
+    <!-- Navigation -->
+    <nav
+      class="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100"
+    >
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="font-semibold text-xl text-gray-900">Angelo Mendoza</div>
+
+          <!-- Desktop Navigation -->
+          <div class="hidden md:flex space-x-8">
+            <a
+              href="#home"
+              class="nav-link text-gray-700 hover:text-primary font-medium"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="nav-link text-gray-700 hover:text-primary font-medium"
+              >About</a
+            >
+            <a
+              href="#skills"
+              class="nav-link text-gray-700 hover:text-primary font-medium"
+              >Skills</a
+            >
+            <a
+              href="#projects"
+              class="nav-link text-gray-700 hover:text-primary font-medium"
+              >Projects</a
+            >
+            <a
+              href="#contact"
+              class="nav-link text-gray-700 hover:text-primary font-medium"
+              >Contact</a
+            >
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <button
+            id="mobile-menu-btn"
+            class="md:hidden w-6 h-6 flex items-center justify-center"
+          >
+            <i class="ri-menu-line text-xl"></i>
+          </button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div
+          id="mobile-menu"
+          class="hidden md:hidden py-4 border-t border-gray-100"
+        >
+          <div class="flex flex-col space-y-3">
+            <a
+              href="#home"
+              class="nav-link text-gray-700 hover:text-primary font-medium py-2"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="nav-link text-gray-700 hover:text-primary font-medium py-2"
+              >About</a
+            >
+            <a
+              href="#skills"
+              class="nav-link text-gray-700 hover:text-primary font-medium py-2"
+              >Skills</a
+            >
+            <a
+              href="#projects"
+              class="nav-link text-gray-700 hover:text-primary font-medium py-2"
+              >Projects</a
+            >
+            <a
+              href="#contact"
+              class="nav-link text-gray-700 hover:text-primary font-medium py-2"
+              >Contact</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section id="home" class="hero-bg min-h-screen flex items-center">
+      <div class="gradient-overlay w-full min-h-screen flex items-center">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div class="text-center bg-white/80 backdrop-blur-md p-10 rounded-2xl shadow-lg">
+            <!-- Profile Image Placeholder -->
+            <div
+              class="w-48 h-48 mx-auto mb-8 rounded-full overflow-hidden border-4 border-white shadow-xl"
+            >
+              <img
+                src="https://media.discordapp.net/attachments/1076443067776778352/1397170567840403596/Untitled.png?ex=6880bffd&is=687f6e7d&hm=5de384e141659f40e96f55e24b73cf8ea4b373800b841f064bba09921911c36f&=&format=webp&quality=lossless"
+                alt="Angelo Mendoza"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+
+            <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
+              Angelo Mendoza
+            </h1>
+            <h2 class="text-2xl md:text-3xl font-medium text-primary mb-6">
+              IT Support Specialist & Web Developer
+            </h2>
+            <p
+              class="text-lg text-gray-600 max-w-2xl mx-auto mb-8 leading-relaxed"
+            >
+              Passionate about technology and problem-solving, I specialize in
+              IT support and web development. I'm dedicated to creating
+              efficient solutions and helping businesses thrive in the digital
+              world.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="#projects"
+                class="!rounded-button whitespace-nowrap bg-primary text-white px-8 py-3 font-medium hover:bg-secondary transition-colors"
+              >
+                View My Work
+              </a>
+              <a
+                href="#contact"
+                class="!rounded-button whitespace-nowrap border-2 border-primary text-primary px-8 py-3 font-medium hover:bg-primary hover:text-white transition-colors"
+              >
+                Get In Touch
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">About Me</h2>
+          <div class="w-20 h-1 bg-primary mx-auto"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <!-- About Image -->
+          <div class="order-2 md:order-1">
+            <div class="rounded-xl overflow-hidden shadow-lg">
+              <img
+                src="https://readdy.ai/api/search-image?query=young%20professional%20working%20on%20computer%20in%20modern%20office%2C%20focused%20on%20coding%20and%20IT%20support%20tasks%2C%20clean%20workspace%20with%20multiple%20monitors%2C%20technology%20environment&width=600&height=400&seq=about-img&orientation=landscape"
+                alt="Angelo at work"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+          </div>
+
+          <!-- About Content -->
+          <div class="order-1 md:order-2">
+            <h3 class="text-2xl font-semibold text-gray-900 mb-6">
+              Passionate About Technology
+            </h3>
+            <div class="space-y-4 text-gray-600 leading-relaxed">
+              <p>
+                As an aspiring IT support specialist and web developer, I bring
+                a unique combination of technical problem-solving skills and
+                creative web development expertise. My journey in technology
+                began with a curiosity about how things work and evolved into a
+                passion for creating digital solutions.
+              </p>
+              <p>
+                I specialize in front-end web development using HTML, CSS, and
+                JavaScript, while also maintaining strong IT support
+                capabilities. I believe in continuous learning and staying
+                updated with the latest technologies to provide the best
+                solutions for every challenge.
+              </p>
+              <p>
+                When I'm not coding or troubleshooting technical issues, I enjoy
+                exploring new technologies, contributing to open-source
+                projects, and helping others learn about web development and IT
+                support.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-white">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">
+            Skills & Technologies
+          </h2>
+          <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Here are the technologies and skills I work with to create amazing
+            digital experiences.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- HTML Skill Card -->
+          <div
+            class="skill-card bg-white border border-gray-200 rounded-xl p-8 text-center shadow-sm"
+          >
+            <div
+              class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="ri-html5-fill text-3xl text-orange-600"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">HTML5</h3>
+            <p class="text-gray-600 leading-relaxed">
+              Semantic markup and modern HTML5 features for building structured,
+              accessible web content.
+            </p>
+          </div>
+
+          <!-- CSS Skill Card -->
+          <div
+            class="skill-card bg-white border border-gray-200 rounded-xl p-8 text-center shadow-sm"
+          >
+            <div
+              class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="ri-css3-fill text-3xl text-blue-600"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">CSS3</h3>
+            <p class="text-gray-600 leading-relaxed">
+              Modern styling techniques, responsive design, and CSS animations
+              for beautiful user interfaces.
+            </p>
+          </div>
+
+          <!-- JavaScript Skill Card -->
+          <div
+            class="skill-card bg-white border border-gray-200 rounded-xl p-8 text-center shadow-sm"
+          >
+            <div
+              class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6"
+            >
+              <i class="ri-javascript-fill text-3xl text-yellow-600"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">JavaScript</h3>
+            <p class="text-gray-600 leading-relaxed">
+              Interactive web applications and dynamic functionality using
+              modern JavaScript ES6+.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">My Projects</h2>
+          <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Here are some of the projects I've worked on. Each project
+            represents a step in my journey as a developer.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- 
+                    PROJECT EDITING INSTRUCTIONS:
+                    To add more projects, copy the entire project card structure below and modify:
+                    1. Update the image src with your project screenshot
+                    2. Change the project title
+                    3. Update the description
+                    4. Replace the preview and GitHub links
+                    5. Paste the new project card in this grid
+                -->
+
+          <!-- Sample Project Card 1 -->
+          <div
+            class="project-card bg-white rounded-xl overflow-hidden shadow-sm border border-gray-200"
+          >
+            <!-- Project Image - Replace with your project screenshot -->
+            <div class="h-48 bg-gray-100 overflow-hidden">
+              <img
+                src="https://media.discordapp.net/attachments/768786304585695275/1397181099515449405/image.png?ex=6880c9cc&is=687f784c&hm=36ec1af30bb3bd77677a21e0baabb391c96ad365e88d7e79b9f01b7b1e712b94&=&format=webp&quality=lossless&width=1802&height=902"
+                alt="Project 1"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+
+            <div class="p-6">
+              <!-- Project Title - Edit this -->
+              <h3 class="text-xl font-semibold text-gray-900 mb-3">
+                Vet Clinic Appointment Website
+              </h3>
+
+              <!-- Project Description - Edit this -->
+              <p class="text-gray-600 mb-4 leading-relaxed">
+                H & H Veterinary Clinic is a clean, user-friendly website built to connect pet owners with trusted veterinary care. 
+				It features online appointment booking, a service gallery, pet wellness tips, and direct contact options. 
+				Designed with both compassion and convenience in mind, the platform ensures that every visitor — whether on desktop or mobile — can easily access the care their pets need.
+              </p>
+
+              <div class="flex gap-3">
+                <!-- Preview Link - Replace with your live demo URL -->
+                <a
+                  href="#"
+                  class="!rounded-button whitespace-nowrap flex-1 bg-primary text-white px-4 py-2 text-sm font-medium text-center hover:bg-secondary transition-colors"
+                >
+                  Live Demo
+                </a>
+
+                <!-- GitHub Link - Replace with your GitHub repository URL -->
+                <a
+                  href="https://github.com/deemo212121/AngeloMendoza"
+                  class="!rounded-button whitespace-nowrap border border-gray-300 text-gray-700 px-4 py-2 text-sm font-medium text-center hover:bg-gray-50 transition-colors"
+                >
+                  <i class="ri-github-line mr-1"></i>Code
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sample Project Card 2 -->
+          <div
+            class="project-card bg-white rounded-xl overflow-hidden shadow-sm border border-gray-200"
+          >
+            <!-- Project Image - Replace with your project screenshot -->
+            <div class="h-48 bg-gray-100 overflow-hidden">
+              <img
+                src="https://media.discordapp.net/attachments/768786304585695275/1397173294037336064/image.png?ex=6880c287&is=687f7107&hm=0f8d80fb8a2897f9342482fc2e7091271cf8dda803836aa708a93b925a8892d1&=&format=webp&quality=lossless"
+                alt="Project 2"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+
+            <div class="p-6">
+              <!-- Project Title - Edit this -->
+              <h3 class="text-xl font-semibold text-gray-900 mb-3">
+                Business & Accounting Services
+              </h3>
+
+              <!-- Project Description - Edit this -->
+              <p class="text-gray-600 mb-4 leading-relaxed">
+                  A dynamic web-based business and accounting system designed to simplify financial management, 
+				  track expenses, generate real-time reports, and manage client data. Built with efficiency and usability in mind for freelancers, 
+				  small businesses, and service providers.
+
+              </p>
+
+              <div class="flex gap-3">
+                <!-- Preview Link - Replace with your live demo URL -->
+                <a
+                  href="#"
+                  class="!rounded-button whitespace-nowrap flex-1 bg-primary text-white px-4 py-2 text-sm font-medium text-center hover:bg-secondary transition-colors"
+                >
+                  Live Demo
+                </a>
+
+                <!-- GitHub Link - Replace with your GitHub repository URL -->
+                <a
+                  href="https://github.com/deemo212121/AngeloMendoza"
+                  class="!rounded-button whitespace-nowrap border border-gray-300 text-gray-700 px-4 py-2 text-sm font-medium text-center hover:bg-gray-50 transition-colors"
+                >
+                  <i class="ri-github-line mr-1"></i>Code
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sample Project Card 3 -->
+          <div
+            class="project-card bg-white rounded-xl overflow-hidden shadow-sm border border-gray-200"
+          >
+            <!-- Project Image - Replace with your project screenshot -->
+            <div class="h-48 bg-gray-100 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=mobile%20responsive%20website%20design%20on%20smartphone%20and%20tablet%20devices%2C%20modern%20mobile%20app%20interface%2C%20cross-platform%20web%20development&width=400&height=300&seq=project3&orientation=landscape"
+                alt="Project 3"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+
+            <div class="p-6">
+              <!-- Project Title - Edit this -->
+              <h3 class="text-xl font-semibold text-gray-900 mb-3">
+                Mobile App Landing
+              </h3>
+
+              <!-- Project Description - Edit this -->
+              <p class="text-gray-600 mb-4 leading-relaxed">
+                A responsive landing page for a mobile application with smooth
+                animations and optimized performance across all devices.
+              </p>
+
+              <div class="flex gap-3">
+                <!-- Preview Link - Replace with your live demo URL -->
+                <a
+                  href="#"
+                  class="!rounded-button whitespace-nowrap flex-1 bg-primary text-white px-4 py-2 text-sm font-medium text-center hover:bg-secondary transition-colors"
+                >
+                  Live Demo
+                </a>
+
+                <!-- GitHub Link - Replace with your GitHub repository URL -->
+                <a
+                  href="https://github.com/deemo212121/AngeloMendoza"
+                  class="!rounded-button whitespace-nowrap border border-gray-300 text-gray-700 px-4 py-2 text-sm font-medium text-center hover:bg-gray-50 transition-colors"
+                >
+                  <i class="ri-github-line mr-1"></i>Code
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 
+                    ADD MORE PROJECTS HERE:
+                    Copy any of the project cards above and modify the content.
+                    Make sure to update:
+                    - Image source
+                    - Project title
+                    - Description
+                    - Preview link
+                    - GitHub link
+                -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+          <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            I'm always open to discussing new opportunities, collaborations, or
+            just having a chat about technology.
+          </p>
+        </div>
+
+        <div class="max-w-2xl mx-auto">
+          <div class="space-y-6">
+            <!-- Email Contact -->
+            <a
+              href="mailto:angelo.mendozawork23@gmail.com"
+              class="contact-link flex items-center p-6 border border-gray-200 rounded-xl hover:bg-gray-50 transition-all"
+            >
+              <div
+                class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4"
+              >
+                <i class="ri-mail-line text-xl text-primary"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-1">Email</h3>
+                <p class="text-gray-600">angelo.mendozawork23@gmail.com</p>
+              </div>
+            </a>
+
+            <!-- Phone Contact -->
+            <a
+              href="tel:+639358753163"
+              class="contact-link flex items-center p-6 border border-gray-200 rounded-xl hover:bg-gray-50 transition-all"
+            >
+              <div
+                class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4"
+              >
+                <i class="ri-phone-line text-xl text-green-600"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-1">Phone</h3>
+                <p class="text-gray-600">+63 935 875 3163</p>
+              </div>
+            </a>
+
+            <!-- GitHub Contact -->
+            <a
+              href="https://github.com/deemo212121/AngeloMendoza"
+              target="_blank"
+              class="contact-link flex items-center p-6 border border-gray-200 rounded-xl hover:bg-gray-50 transition-all"
+            >
+              <div
+                class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mr-4"
+              >
+                <i class="ri-github-line text-xl text-gray-700"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-900 mb-1">GitHub</h3>
+                <p class="text-gray-600">
+                  github.com/deemo212121/AngeloMendoza
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <p class="text-gray-400">
+            © 2025 Angelo Mendoza. All rights reserved. Built with passion and
+            dedication.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu -->
+    <script id="mobile-menu-script">
+      document.addEventListener("DOMContentLoaded", function () {
+        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        mobileMenuBtn.addEventListener("click", function () {
+          mobileMenu.classList.toggle("hidden");
+        });
+
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll("a");
+        mobileLinks.forEach((link) => {
+          link.addEventListener("click", function () {
+            mobileMenu.classList.add("hidden");
+          });
+        });
+      });
+    </script>
+
+    <!-- JavaScript for Smooth Scrolling -->
+    <script id="smooth-scroll-script">
+      document.addEventListener("DOMContentLoaded", function () {
+        const navLinks = document.querySelectorAll('a[href^="#"]');
+
+        navLinks.forEach((link) => {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute("href");
+            const targetSection = document.querySelector(targetId);
+
+            if (targetSection) {
+              const offsetTop = targetSection.offsetTop - 80;
+
+              window.scrollTo({
+                top: offsetTop,
+                behavior: "smooth",
+              });
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
